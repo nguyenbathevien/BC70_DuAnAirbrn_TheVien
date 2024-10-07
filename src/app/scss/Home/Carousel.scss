@@ -1,0 +1,13 @@
+.carousel {
+    position: relative;
+    
+    iframe {
+      width: 100%;
+      height: 500px;
+    }
+  
+    .carousel-control-prev,
+    .carousel-control-next {
+      filter: invert(100%);
+    }
+  }
