@@ -1,0 +1,109 @@
+.header-container .navbar {
+  background-color: #fff;
+}
+.header-container .navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+.header-container .navbar .navbar-brand .site-name {
+  font-weight: bold;
+  color: #FE6B6E;
+  font-size: 24px;
+  font-family: "Open Sans", sans-serif;
+  margin-left: 10px;
+}
+.header-container .navbar .navbar-nav .nav-link {
+  color: #000;
+  font-weight: normal;
+}
+.header-container .navbar .navbar-nav .nav-link:hover {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+.header-container .navbar .navbar-nav .nav-link.active {
+  color: #FE6B6E;
+  font-weight: bold;
+}
+.header-container .navbar .globe-link:hover, .header-container .navbar .host-link:hover, .header-container .navbar .user-link:hover {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+}
+.header-container .search {
+  width: 60%;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.header-container .search .bg-white {
+  border-radius: 50px;
+}
+.header-container .search input,
+.header-container .search button {
+  border-radius: 50px;
+}
+.header-container .carousel-container {
+  position: relative;
+  min-height: 60vh;
+  width: 100%;
+}
+.header-container .carousel-container .hero-image {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.header-container .carousel-container .hero-text {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.btn-signin {
+  width: 200px;
+  height: 50px;
+}
+
+.btn-signup {
+  width: 200px;
+  height: 50px;
+}
+
+.background {
+  position: relative;
+  background-image: url("/assets/img/airbnb.webp");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}/*# sourceMappingURL=index.css.map */
