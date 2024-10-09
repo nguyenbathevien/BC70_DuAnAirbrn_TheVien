@@ -72,16 +72,20 @@ const data = [
 
 const TableAdmin = () => {
   return (
-    <div>
-      <input
-        type="text"
-        className="input-group d-inline me-3 px-3"
-        style={{ width: '700px' }}
-        placeholder="Tìm kiếm..."
-      />
-      <button className="btn btn-danger">Tìm</button>
+    <div >
+      <div className="row mb-3">
+        <div className="col-12 col-md-9 mb-2 mb-md-0">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Tìm kiếm..."
+          />
+        </div>
+        <div className="col-12 col-md-3">
+          <button className="btn btn-danger w-50">Tìm</button>
+        </div>
+      </div>
       <Table columns={columns} dataSource={data} bordered rowKey="id" />
-
     </div>
   );
 };

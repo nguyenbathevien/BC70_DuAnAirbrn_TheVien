@@ -10,12 +10,18 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
+    "@reduxjs/toolkit": "^2.2.8",
     "airbnb": "file:",
     "antd": "^5.21.2",
+    "axios": "^1.7.7",
+    "formik": "^2.4.6",
     "next": "14.2.14",
     "react": "^18",
     "react-dom": "^18",
+    "react-redux": "^9.1.2",
+    "redux": "^5.0.1",
     "sass": "^1.79.4",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "yup": "^1.4.0"
   }
 }
