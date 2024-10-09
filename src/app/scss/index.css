@@ -64,6 +64,32 @@
   z-index: 2;
 }
 
+.footer-container {
+  background-color: #f8f9fa;
+  padding-top: 40px;
+}
+.footer-container .background-footer {
+  background-color: #f3f4f6;
+}
+.footer-container h5 {
+  font-weight: bold;
+}
+.footer-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-container li {
+  margin-bottom: 10px;
+}
+.footer-container li a {
+  text-decoration: none;
+  color: #000;
+}
+.footer-container li a:hover {
+  text-decoration: underline;
+}
+
 .btn-signin {
   width: 200px;
   height: 50px;
@@ -101,6 +127,10 @@
   z-index: 2;
 }
 
+/* Styles for iPhone 6/7/8 (375px) */
+/* Styles for iPhone 6/7/8 Plus (414px) */
+/* Styles for iPad (768px to 1024px) */
+/* Styles for desktop (1200px and above) */
 * {
   padding: 0;
   margin: 0;

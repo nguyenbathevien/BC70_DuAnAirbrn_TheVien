@@ -1,0 +1,31 @@
+.footer-container {
+    background-color: #f8f9fa;
+    padding-top: 40px ;
+    
+    .background-footer{
+        background-color:  #f3f4f6
+    }
+    h5 {
+      font-weight: bold;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    li {
+      margin-bottom: 10px;  
+  
+      a {
+        text-decoration: none; 
+        color: #000; 
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  
