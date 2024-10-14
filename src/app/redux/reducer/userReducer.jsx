@@ -40,20 +40,23 @@ export const loginActionAsync = (userLoginModel) => {
   return async (dispatch) => {
     try {
       const res = await http.post("/api/auth/signin", userLoginModel);
-      const token = res.data.content.accessToken;
-      const userLogin = JSON.stringify(res.data.content);
-      const userEmail = res.data.content.email;
+
       
+      const token = res.data.content.token; 
+      const userEmail = res.data.content.user.email; 
+      const userLogin = JSON.stringify(res.data.content.user); 
+
+      // Lưu vào localStorage và cookie
       localStorage.setItem(Email, userEmail);
       localStorage.setItem(TOKEN, token);
       localStorage.setItem(USER_LOGIN, userLogin);
-      setCookie(TOKEN, token, 7);
-      
+      setCookie(USER_LOGIN, userLogin, 7);
+
+ 
       const action = setUserLogicAction(res.data.content);
       dispatch(action);
 
     } catch (error) {
-     
       if (error.response && error.response.data) {
         console.log('API Error Response:', error.response.data);
         throw error.response.data; 
@@ -64,6 +67,7 @@ export const loginActionAsync = (userLoginModel) => {
     }
   };
 };
+
 
 export const registerActionAsync = (userRegisterModel) => {
   return async (dispatch) => {
