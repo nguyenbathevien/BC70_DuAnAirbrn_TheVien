@@ -1,10 +1,21 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CaretDownOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { Dropdown } from 'antd';
+import { useDispatch } from 'react-redux';
+import { pageAdminActionAsync } from '@/app/redux/reducer/adminReducer/adminReducer';
 
 const layout = ({ children }) => {
+  const dispatch = useDispatch()
+  console.log("abc")
+  const getPageAdmin = () => {
+    const action = pageAdminActionAsync();
+    dispatch(action)
+  }
+  useEffect(()=>{
+    getPageAdmin()
+  },[])
   const menuItems = [
     {
       key: '1',
