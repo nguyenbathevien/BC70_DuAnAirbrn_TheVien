@@ -8,7 +8,6 @@ import { pageAdminActionAsync } from '@/app/redux/reducer/adminReducer/adminRedu
 
 const layout = ({ children }) => {
   const dispatch = useDispatch()
-  console.log("abc")
   const getPageAdmin = () => {
     const action = pageAdminActionAsync();
     dispatch(action)
@@ -25,7 +24,7 @@ const layout = ({ children }) => {
       key: '2',
       label: 'Đăng xuất',
     },
-  ];
+  ]
 
   return (
     <div className="d-flex" style={{ minHeight: '100vh' }}>
