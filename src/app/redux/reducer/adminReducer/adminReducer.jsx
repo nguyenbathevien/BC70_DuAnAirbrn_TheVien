@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   pageAdmin: null,
+  userApi: [{}]
 }
 
 const adminReducer = createSlice({
@@ -11,11 +12,14 @@ const adminReducer = createSlice({
   reducers: {
     setAdminPageAction: (state, action) => {
       state.pageAdmin = action.payload;
+    },
+    setApiUserAction: (state,action) => {
+      state.userApi = action.payload
     }
   }
 });
 
-export const { setAdminPageAction, setAdminStatus } = adminReducer.actions;
+export const { setAdminPageAction, setApiUserAction } = adminReducer.actions;
 
 export default adminReducer.reducer;
 
@@ -24,21 +28,25 @@ export const pageAdminActionAsync = () => {
     try {
       const response = await http.get('/api/users');
       const userLogin = JSON.parse(localStorage.getItem(USER_LOGIN));
-      console.log(userLogin)
+     
       const currentUser = response.data.content.find(user => user.email === userLogin.email);
-
-      // Kiểm tra role
       if (currentUser && currentUser.role === 'ADMIN') {
-        // Nếu là admin thì tiếp tục truy cập
         dispatch(setAdminPageAction(currentUser));
       } else {
-        // Nếu không phải admin thì trả về mã lỗi 403
         alert('Bạn không có quyền truy cập vào trang này');
-        throw { response: { status: 403 } };
       }
     } catch (error) {
-      // Xử lý lỗi từ interceptor
       console.error('Lỗi khi kiểm tra quyền admin:', error);
     }
   };
 };
+
+export  const getApiUserActionAsync = () => {
+  return async (dispatch) => {
+    const res = await http.get("/api/users")
+    const action =  setApiUserAction(res.data.content)
+    dispatch(action)
+    console.log(action)
+  }
+}
+
