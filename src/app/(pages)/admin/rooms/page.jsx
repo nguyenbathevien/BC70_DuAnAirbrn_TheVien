@@ -4,6 +4,7 @@ import { Space, Table } from 'antd';
 import TitleSearch from '@/app/component/TitleSearch';
 
 const Room = () => {
+  const handleSearchRoom = () => {}
   const columns = [
     { title: 'Mã Phòng', dataIndex: 'id', key: 'id' },
     { title: 'Tên Phòng', dataIndex: 'name', key: 'name' },
@@ -31,7 +32,7 @@ const Room = () => {
 
   return (
     <div>
-      <TitleSearch title="Thêm Phòng"></TitleSearch>
+      <TitleSearch title="Thêm Phòng" onSearch={handleSearchRoom}></TitleSearch>
       <Table columns={columns} data={data} />
     </div>
   );

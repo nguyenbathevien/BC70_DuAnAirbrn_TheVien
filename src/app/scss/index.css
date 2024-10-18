@@ -131,6 +131,15 @@
 /* Styles for iPhone 6/7/8 Plus (414px) */
 /* Styles for iPad (768px to 1024px) */
 /* Styles for desktop (1200px and above) */
+.table-admin .ant-table {
+  border-collapse: collapse;
+}
+
+.table-admin .ant-table th,
+.table-admin .ant-table td {
+  border: 1px solid #d9d9d9;
+}
+
 * {
   padding: 0;
   margin: 0;
