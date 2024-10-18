@@ -70,7 +70,7 @@ http.interceptors.response.use(
         break;
       case 403:
         {
-          alert("Yêu cầu quản trị viên mới có thể vào được!");
+          alert("Yêu cầu Quyền quản trị viên !");
         }
         break;
       case 500:

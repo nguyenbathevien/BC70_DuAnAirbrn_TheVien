@@ -28,7 +28,7 @@ const layout = ({ children }) => {
 
   return (
     <div className="d-flex" style={{ minHeight: '100vh' }}>
-      <nav className="d-flex flex-column bg-dark text-white" style={{ width: '250px' }}>
+      <nav className="d-flex flex-column bg-dark text-white" style={{ minWidth: '250px' }}>
         <h2 className="text-center py-4">Dashboard</h2>
         <ul className="nav flex-column">
           <li className="nav-item">
