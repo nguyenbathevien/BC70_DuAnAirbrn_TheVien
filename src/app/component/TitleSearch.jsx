@@ -8,13 +8,13 @@ const TitleSearch = ({ title, onSearch,onClick }) => {
 
   return (
     <div>
-      <button className='btn btn-primary my-2' onClick={onClick}>{title}</button>
+      <button className='btn my-2' style={{background: '#FE6B6E', color:'#fff'}} onClick={onClick}>{title}</button>
       <div className="row mb-3">
-        <div className="col-12 col-md-9 mb-2 mb-md-0">
+        <div className="col-12 col-md-9 mb-2 w-50 mb-md-0">
           <input
             type="text"
             className="form-control"
-            placeholder="Tìm kiếm..."
+            placeholder="Tìm kiếm theo tên..."
             onChange={handleInputChange} 
           />
         </div>

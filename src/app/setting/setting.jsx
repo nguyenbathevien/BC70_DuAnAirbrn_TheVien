@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const TOKEN = "accessToken";
+export const TOKEN = "token";
 export const USER_LOGIN = "userLogin";
 export const Email = "email";
 
@@ -43,6 +43,7 @@ http.interceptors.request.use((req) => {
     ...req.headers,
     Authorization: token,
     'TokenCybersoft': TOKEN_CYBERSOFT,
+    token: token
   };
   return req;
 });
