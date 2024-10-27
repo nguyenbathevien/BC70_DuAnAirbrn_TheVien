@@ -21,7 +21,6 @@ const Search = () => {
 
   const handleLocationClick = () => {
     setShowLocationDropdown((prev) => !prev);
-    setShowDropdown(false);
   };
 
   const handleGuestCountChange = (count) => {
