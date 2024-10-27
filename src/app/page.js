@@ -1,11 +1,11 @@
 import Content from "./component/Content";
 import FooterComponent from "./component/FooterComponent";
-import Header from "./component/Header";
+import HomePage from "./component/HomePage";
 
-export default function HomePage() {
+export default function Home() {
   return (
     <main>
-      <Header/>
+      <HomePage/>
       <Content/>
       <FooterComponent/>
     </main>

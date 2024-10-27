@@ -1,12 +1,10 @@
-"use client";
-import React, { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import Search from "./HomePage/Search";
-import Carousel from "./HomePage/Carousel";
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState } from 'react'
 
-const Header = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
+const HeaderMenu = () => {
+
+    const [showDropdown, setShowDropdown] = useState(false);
 
   const handleUserClick = () => {
     setShowDropdown(!showDropdown);
@@ -24,8 +22,8 @@ const Header = () => {
   );
 
   return (
-    <div className="header-container">
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+    <div>
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container d-flex justify-content-between">
           <Link href="/" className="navbar-brand d-flex align-items-center">
             <Image src="/assets/img/airbnb.svg" alt="Logo" width={30} height={30} />
@@ -40,10 +38,8 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <Search />
-      <Carousel />
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default HeaderMenu
