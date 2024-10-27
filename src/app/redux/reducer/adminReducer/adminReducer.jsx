@@ -6,16 +6,13 @@ const initialState = {
   pageAdmin: null,
   userApi: [{}],
   userUpdate: {},
-  
+  isAdmin: false,
 }
 
 const adminReducer = createSlice({
   name: "adminReducer",
   initialState,
   reducers: {
-    setAdminPageAction: (state, action) => {
-      state.pageAdmin = action.payload;
-    },
     setApiUserAction: (state,action) => {
       state.userApi = action.payload
     },
@@ -28,7 +25,11 @@ const adminReducer = createSlice({
     },
     setUserDeleteAction: (state,action) => {
       state.userApi = action.payload
-    } 
+    },
+    setAdminPageAction: (state, action) => {
+      state.pageAdmin = action.payload;
+      state.isAdmin = action.payload.role === 'ADMIN'; 
+    },
   }
 });
 
@@ -36,7 +37,7 @@ export const { setAdminPageAction, setApiUserAction,setUserAddAction,setUserUpda
 
 export default adminReducer.reducer;
 
-export const pageAdminActionAsync = () => {
+export const pageAdminActionAsync = (router) => {
   return async (dispatch) => {
     try {
       const response = await http.get('/api/users');
@@ -47,9 +48,10 @@ export const pageAdminActionAsync = () => {
         dispatch(setAdminPageAction(currentUser));
       } else {
         alert('Bạn không có quyền truy cập vào trang này');
+        router.push('/login');
       }
     } catch (error) {
-      console.error('Lỗi khi kiểm tra quyền admin:', error);
+      alert('Lỗi khi kiểm tra quyền admin:' + error);
     }
   };
 };
@@ -95,6 +97,7 @@ export const updateUserActionAsync = (userId, userForm) => {
     }
   };
 };
+
 
 export const deleteUserActionAsync = (userId) => {
   return async (dispatch, getState) => {
