@@ -69,10 +69,11 @@
   box-shadow: 0 0 8px rgba(0, 113, 194, 0.2);
 }
 .header-container .search .date-range-picker .ant-picker {
+  display: inline-flex;
   border-radius: 20px;
   border: 1px solid #ccc;
   padding: 8px 12px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 .header-container .search .date-range-picker .ant-picker:hover, .header-container .search .date-range-picker .ant-picker:focus {
   border-color: #0071c2;
@@ -285,7 +286,8 @@
 .content-container .icon-text:hover {
   color: #000;
 }
-.content-container .location-card, .content-container .accommodation-card {
+.content-container .location-card,
+.content-container .accommodation-card {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px;
@@ -293,19 +295,23 @@
   background-color: #f9f9f9;
   transition: transform 0.2s;
 }
-.content-container .location-card:hover, .content-container .accommodation-card:hover {
+.content-container .location-card:hover,
+.content-container .accommodation-card:hover {
   transform: scale(1.05);
 }
-.content-container .location-card p, .content-container .accommodation-card p {
+.content-container .location-card p,
+.content-container .accommodation-card p {
   margin: 5px 0;
   font-weight: bold;
 }
-.content-container .location-card small, .content-container .accommodation-card small {
+.content-container .location-card small,
+.content-container .accommodation-card small {
   display: block;
   color: #666;
   font-size: 0.9em;
 }
-.content-container .location-card img, .content-container .accommodation-card img {
+.content-container .location-card img,
+.content-container .accommodation-card img {
   height: 150px;
   -o-object-fit: cover;
      object-fit: cover;

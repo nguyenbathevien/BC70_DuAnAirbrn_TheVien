@@ -81,10 +81,11 @@
     }
 
     .date-range-picker .ant-picker {
+      display: inline-flex;
       border-radius: 20px;
       border: 1px solid #ccc; 
       padding: 8px 12px;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
 
       &:hover,
       &:focus {
@@ -117,6 +118,7 @@
     }
   }
 
+  //menu địa điểm
   .dropdown-menu {
     z-index: 999;
     padding: 20px;
@@ -165,7 +167,7 @@
       }
     }
   }
-
+  //SLKhach
   .so-luong-khach-dropdown {
     width: 250px;
     border-radius: 8px;
