@@ -521,7 +521,7 @@ const Room = () => {
         showModal('add', roomForm)
       }} onSearch={handleSearchRoom} />
       <div className="table-admin">
-        {loading ? (<Spin />) : <Table columns={columns} dataSource={data} scroll={{ x: '100%' }} />}
+        {loading ? (<Spin  style={{ display: 'flex', justifyContent: 'center', marginTop: '20%' }} />) : <Table columns={columns} dataSource={data} scroll={{ x: '100%' }} />}
       </div>
       <Modal
         title={modalType === 'add' ? "Thêm Phòng" : "Chi tiết Phòng"}
