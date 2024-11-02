@@ -18,23 +18,21 @@
         email: Yup.string().required("Email không được để trống").email("Email không đúng định dạng"),
         password: Yup.string().required("Email không được để trống"),
       }),
-      onSubmit: (values) => {
-        console.log('Form Data:', values);
-        const actionthunk = loginActionAsync(values);
-        dispatch(actionthunk)
-          .then(() => {
-            alert("Đăng nhập thành công");
-            router.push("/");
-          })
-          .catch((err) => {
-          
-            if (err.statusCode === 400) {
-              alert(err.content);
-            } else {
-              alert(err.message || "Đã xảy ra lỗi!");
-            }
-          });
+      onSubmit: async (values) => {
+        try {
+          const actionthunk = loginActionAsync(values);
+          await dispatch(actionthunk);
+          alert("Đăng nhập thành công");
+          router.push("/");
+        } catch (err) {
+          if (err.statusCode === 400) {
+            alert(err.content);
+          } else {
+            alert(err.message || "Đã xảy ra lỗi!");
+          }
+        }
       },
+      
       
     });
 

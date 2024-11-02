@@ -345,7 +345,7 @@ const User = () => {
       <TitleSearch title="Thêm quản trị viên" onClick={() => { showModal("add") }} onSearch={handleSearch} />
 
       {loading ? (
-        <Spin />
+        <Spin  style={{ display: 'flex', justifyContent: 'center', marginTop: '20%' }} />
       ) : (
         <Table columns={columns} dataSource={data} />
       )}
