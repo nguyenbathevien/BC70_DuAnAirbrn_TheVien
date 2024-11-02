@@ -19,4 +19,9 @@ export const getRoomByIDAction = async (id) => {
     const data = await res.data.content
     return data
 }
+export const getApiRoomByIdLocationAction = async(idLocation) => {
+    const res = await axios.get(`${DOMAIN}/api/phong-thue/lay-phong-theo-vi-tri?maViTri=${idLocation}`,token)
+    const data = await res.data.content
+    return data
+}
 

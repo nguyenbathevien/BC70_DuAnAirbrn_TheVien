@@ -9,6 +9,7 @@ import { Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faParking, faSnowflake, faSoap, faSwimmer, faTShirt, faTv, faUtensils, faWifi } from '@fortawesome/free-solid-svg-icons';
 import CommentContent from '@/app/component/CommentContent';
+import CardPayRoom from '@/app/component/CardPayRoom';
 
 const Detail = async (props) => {
   const roomDetail = await getRoomByIDAction(props.params.id);
@@ -24,14 +25,13 @@ const Detail = async (props) => {
   ];
 
   const availableFeatures = features.filter((feature) => feature.condition);
-
   return (
     <>
       <div className="container my-5">
         <h3 className="fw-bold">{roomDetail.tenPhong}</h3>
         <span>Chủ nhà siêu cấp</span>
         <Link href="#">{roomDetail.maViTri}</Link>
-        <Image src={roomDetail.hinhAnh} style={{ width: '100%', height: '300px' }} alt="..." width={500} height={300} crossOrigin="anonymous" />
+        <Image src={roomDetail.hinhAnh} style={{ width: '100%', height: '400px' }} alt="..." width={500} height={300} crossOrigin="anonymous" priority />
         <div className="row mt-3">
           <div className="col-md-7">
             <div className="d-flex me-2 justify-content-between">
@@ -100,7 +100,7 @@ const Detail = async (props) => {
                 Dịch sang tiếng Anh
               </Button>
               <p className="mt-4 text-justify">
-                Chào mừng bạn đến với Botanicahome! Chúng tôi hân hạnh mời bạn trải nghiệm ngôi nhà của gia đình chúng tôi...
+              Tự nhận phòng Tự nhận phòng bằng khóa thông minh. Dinh Long là Chủ nhà siêu cấp Chủ nhà siêu cấp là những chủ nhà có kinh nghiệm, được đánh giá cao và là những người cam kết mang lại quãng thời gian ở tuyệt vời cho khách.
               </p>
             </div>
             <hr />
@@ -115,54 +115,7 @@ const Detail = async (props) => {
             </div>
           </div>
           <div className="col-md-5 ">
-            <div className="card p-3">
-              <div className="d-flex justify-content-between align-items-center mb-3">
-                <div>
-                  <strong>$28</strong> / night
-                </div>
-                <div>
-                  <span className="text-danger">★</span> 5 (<a href="#">6 đánh giá</a>)
-                </div>
-              </div>
-
-              <div className="border rounded p-3 mb-3">
-                <div className="d-flex justify-content-between mb-2 border-bottom">
-                  <div className="w-50 text-center p-2">
-                    <div>Nhận phòng</div>
-                    <div>31-10-2024</div>
-                  </div>
-                  <div className="w-50 text-center p-2 border-start">
-                    <div>Trả phòng</div>
-                    <div>07-11-2024</div>
-                  </div>
-                </div>
-                <div className="mt-4">
-                  <div>Khách</div>
-                  <div className="d-flex mt-3 justify-content-between align-items-center">
-                    <button className="btn btn-outline-danger btn-sm">-</button>
-                    <span className="mx-2">1 khách</span>
-                    <button className="btn btn-outline-danger btn-sm">+</button>
-                  </div>
-                </div>
-              </div>
-
-              <button className="btn btn-danger w-100 mb-3">Đặt phòng</button>
-              <div className="text-center text-muted mb-3">Bạn vẫn chưa bị trừ tiền</div>
-
-              <div className="mb-2 d-flex justify-content-between">
-                <div>$28 X 7 nights</div>
-                <div>$196</div>
-              </div>
-              <div className="mb-2 d-flex justify-content-between">
-                <div>Cleaning fee</div>
-                <div>$8</div>
-              </div>
-              <hr />
-              <div className="d-flex justify-content-between">
-                <strong>Total before taxes</strong>
-                <strong>204</strong>
-              </div>
-            </div>
+            <CardPayRoom roomDetail ={roomDetail} idRoom={props.params.id}/>
           </div>
         </div>
         <hr />

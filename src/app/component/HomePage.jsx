@@ -10,7 +10,7 @@ const HomePage = () => {
   return (
     <div className="header-container">
       <HeaderMenu/>
-      <Search/>
+      <Search />
       <Carousel/>
     </div>
   );

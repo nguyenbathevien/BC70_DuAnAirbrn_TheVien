@@ -88,7 +88,8 @@ const Profile = () => {
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href={`https://demo4.cybersoft.edu.vn/profile/${userProfile.id}`} />
             </Head>
-            <div className="container my-4">
+            <HeaderMenu/>
+            <div className="container py-3 my-4">
                 <div className="row">
                     <div className="col-md-4 mt-4">
                         <div className="card p-4">
