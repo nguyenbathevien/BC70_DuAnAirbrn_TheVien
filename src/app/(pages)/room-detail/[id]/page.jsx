@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faParking, faSnowflake, faSoap, faSwimmer, faTShirt, faTv, faUtensils, faWifi } from '@fortawesome/free-solid-svg-icons';
 import CommentContent from '@/app/component/CommentContent';
 import CardPayRoom from '@/app/component/CardPayRoom';
+import HeaderMenu from '@/app/component/HomePage/HeaderMenu';
+import FooterComponent from '@/app/component/FooterComponent';
 
 const Detail = async (props) => {
   const roomDetail = await getRoomByIDAction(props.params.id);
@@ -27,7 +29,8 @@ const Detail = async (props) => {
   const availableFeatures = features.filter((feature) => feature.condition);
   return (
     <>
-      <div className="container my-5">
+    <HeaderMenu/>
+      <div className="container py-3 my-5">
         <h3 className="fw-bold">{roomDetail.tenPhong}</h3>
         <span>Chủ nhà siêu cấp</span>
         <Link href="#">{roomDetail.maViTri}</Link>
@@ -121,6 +124,7 @@ const Detail = async (props) => {
         <hr />
         <CommentContent idRoom={props.params.id}/>
       </div>
+      <FooterComponent/>
     </>
   );
 };

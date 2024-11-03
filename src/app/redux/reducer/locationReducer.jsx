@@ -5,6 +5,7 @@ const initialState = {
   locations: [],
   loading: false,
   error: null,
+  idlocation: {}
 };
 
 const locationReducer = createSlice({
@@ -23,11 +24,14 @@ const locationReducer = createSlice({
     setErrorAction: (state, action) => {
       state.loading = false;
       state.error = action.payload;
+    },
+    setLocationIdAction: (state,action) => {
+      state.idlocation = action.payload
     }
   },
 });
 
-export const { setLocationsAction, setLoadingAction, setErrorAction } = locationReducer.actions;
+export const { setLocationsAction, setLoadingAction, setErrorAction ,setLocationIdAction} = locationReducer.actions;
 export default locationReducer.reducer;
 
 export const LocationsActionAsync = () => {
@@ -62,3 +66,10 @@ export const fetchLocationsByPageAsync = () => {
   };
 };
 
+export const getLocationByIDActionAsync = (id) => {
+  return async(dispatch) => {
+    const res = await http.get(`/api/vi-tri/${id}`)
+    const action = setLocationIdAction(res.data.content)
+    dispatch(action)
+  }
+}

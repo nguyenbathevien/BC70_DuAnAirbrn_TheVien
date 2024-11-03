@@ -11,7 +11,6 @@ const HeaderMenu = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const {userLogin} = useSelector((state) => state.userReducer);
-  console.log("userLogin: ", userLogin)
   const handleUserClick = () => {
     setShowDropdown(!showDropdown);
   };

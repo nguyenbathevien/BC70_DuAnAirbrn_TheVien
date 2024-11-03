@@ -70,7 +70,7 @@ export const loginActionAsync = (userLoginModel) => {
 
 
  
-      const action = setUserLogicAction(res.data.content);
+      const action = setUserLogicAction(res.data.content.user);
       dispatch(action);
 
     } catch (error) {
