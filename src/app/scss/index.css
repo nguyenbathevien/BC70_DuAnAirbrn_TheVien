@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
 }
-.header-container .navbar .navbar-brand .site-name {
+ .site-name {
   font: bold 24px "Open Sans", sans-serif;
   color: #fe6b6e;
   margin-left: 10px;

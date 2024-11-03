@@ -17,7 +17,7 @@ const Rooms = async () => {
             hoverable
             style={{ width: 300, borderRadius: '10px', overflow: 'hidden' }}
             cover={
-              <div style={{ position: 'relative' }}>
+              <div style={{ position: 'relative',zIndex:100 }}>
                 <span className="position-absolute top-0 start-0 m-2 bg-white px-2 py-1 rounded text-muted">
                   Guest favorite
                 </span>

@@ -7,28 +7,32 @@ import { CheckCircleFilled, CloseCircleFilled, UserOutlined } from '@ant-design/
 import { Button, Input, Modal, Table, Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { getApiRoomForUserActionAsync } from '@/app/redux/reducer/bookreducer';
 
 const Profile = () => {
     const dispatch = useDispatch();
-    const { userProfile } = useSelector((state) => state.userReducer);
+    
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [editableProfile, setEditableProfile] = useState(userProfile);
+    
+    const [isProfileLoaded, setIsProfileLoaded] = useState(false);
+    const { userProfile } = useSelector((state) => state.userReducer);
+    const { apiUserBook } = useSelector((state) => state.bookreducer);
+    console.log("du lieu",apiUserBook)
+    const getApiRoomBook = () => {
+        dispatch(getApiRoomForUserActionAsync(userProfile.id))
+    } 
+    const [editableProfile, setEditableProfile] = useState(userProfile);    
     const getProfileApi = async () => {
         await dispatch(setProfileActionAsync());
+        setIsProfileLoaded(true);
     };
-    useEffect(() => {
-    getProfileApi();
-    }, [dispatch]);
-
     const showModal = () => {
         setEditableProfile(userProfile);
         setIsModalVisible(true);
     };
-
     const handleCancel = () => {
         setIsModalVisible(false);
     };
-
     const renderUserProfile = () => (
         <div>
             <p>
@@ -57,15 +61,14 @@ const Profile = () => {
                 />
             </p>
             <p>
-                <strong>Vai trò:</strong>
+                <strong>Giới tính:</strong>
                 <Input
-                    value={editableProfile.role}
-                    onChange={(e) => setEditableProfile({ ...editableProfile, role: e.target.value })}
+                    value={editableProfile.gender ? "Nam":"Nữ"}
+                    onChange={(e) => setEditableProfile({ ...editableProfile, gender: e.target.value })}
                 />
             </p>
         </div>
     );
-
     const handleFileChange = async (e) => {
         const file = e.target.files[0];
         const filedata = new FormData();
@@ -77,9 +80,49 @@ const Profile = () => {
             console.error("Error uploading file:", err);
         }
     };
-
-   
-
+    const columns = [
+        {
+            title: 'ID',
+            dataIndex: 'id',
+            key: 'id',
+        },
+        {
+            title: 'Mã người dùng',
+            dataIndex: 'maNguoiDung',
+            key: 'maNguoiDung',
+        },
+        {
+            title: 'Mã phòng',
+            dataIndex: 'maPhong',
+            key: 'maPhong',
+        },
+        {
+            title: 'Ngày đến',
+            dataIndex: 'ngayDen',
+            key: 'ngayDen',
+            render: (text) => new Date(text).toLocaleDateString('vi-VN'),
+        },
+        {
+            title: 'Ngày đi',
+            dataIndex: 'ngayDi',
+            key: 'ngayDi',
+            render: (text) => new Date(text).toLocaleDateString('vi-VN'),
+        },
+        {
+            title: 'Số lượng khách',
+            dataIndex: 'soLuongKhach',
+            key: 'soLuongKhach',
+        },
+    ];
+    useEffect(() => {
+    getProfileApi();
+    }, [dispatch]);
+    useEffect(() => {
+        if (isProfileLoaded && userProfile.id) {
+            getApiRoomBook();
+        }
+      }, [isProfileLoaded, userProfile]);
+    
     return (
         <>
             <Head>
@@ -143,9 +186,8 @@ const Profile = () => {
                             Chỉnh sửa hồ sơ
                         </a>
                         <h3 className='fw-bold mt-3'>Phòng Đã Thuê</h3>
-                        {/* Giả sử apiBook là một biến chứa dữ liệu phòng đã thuê */}
-                        {userProfile.apiBook ? (
-                            <Table dataSource={userProfile.apiBook} />
+                        {apiUserBook ? (
+                            <Table dataSource={apiUserBook} columns={columns}  rowKey="id"/>
                         ) : (
                             <p>Bạn chưa đặt phòng nào</p>
                         )}

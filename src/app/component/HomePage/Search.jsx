@@ -41,9 +41,14 @@ const Search = () => {
   };
 
   const handleFindRooms = () => {
+    if(idLocation){
     const dateQuery = encodeURIComponent(JSON.stringify(selectedDate));
     const URL = `/rooms/${idLocation}?location=${selectedLocation}&date=${dateQuery}`;
     router.push(URL);
+    }else{
+      router.push("/rooms")
+    }
+    
 };
 
   const locationDropdown = (
